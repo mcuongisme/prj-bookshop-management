@@ -11,7 +11,7 @@ class Sach(models.Model):
     gia = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, 
                               validators=[MinValueValidator(0)], verbose_name="Giá")
     mo_ta = models.TextField(max_length=500, blank=True, null=True, verbose_name="Mô tả")
-    cover_image = CloudinaryField('image', folder='book_covers', verbose_name="Ảnh bìa", blank=True)
+    cover_image = CloudinaryField('image', folder='book_covers', blank=True)
     
     class Meta:
         db_table = 'sach'
