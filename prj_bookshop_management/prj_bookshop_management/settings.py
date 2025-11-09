@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@v&$i#p&_!96p7+*7yfqe01#enp^p*0&-6srsqxa_&hw20ky6b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['prj-bookshop-management-1.onrender.com']
 
 
 # Application definition
