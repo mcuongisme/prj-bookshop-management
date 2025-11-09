@@ -34,9 +34,11 @@ jobs:
           echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
 
       - name: Run migrations
+        working-directory: ./prj_bookshop_management  
         run: |
           python manage.py migrate --noinput
 
       - name: Run tests
+        working-directory: ./prj_bookshop_management
         run: |
           python manage.py test
