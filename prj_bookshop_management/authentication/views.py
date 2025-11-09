@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_protect
 def login_view(request):
     """Trang đăng nhập"""
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('/books/')
     
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -21,7 +21,7 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            next_url = request.GET.get('next', 'home')
+            next_url = request.GET.get('next', '/books/')
             return redirect(next_url)
         else:
             messages.error(request, 'Tên tài khoản hoặc mật khẩu không đúng!')
@@ -34,11 +34,3 @@ def logout_view(request):
     """Đăng xuất"""
     logout(request)
     return redirect('login')
-
-
-@login_required
-def home_view(request):
-    """Trang chủ sau khi đăng nhập"""
-    return render(request, 'base.html', {
-        'user': request.user
-    })
