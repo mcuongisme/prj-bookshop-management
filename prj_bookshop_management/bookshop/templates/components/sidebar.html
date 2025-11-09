@@ -11,7 +11,7 @@
             <span>Trang Chủ</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'list_orders' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'sach_list' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'list_orders' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-list mr-3"></i>
             <span>Quản  lý Sách</span>
         </a>
