@@ -12,7 +12,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.9, 3.10, 3.11]  # 👉 update version mới hơn (3.7 đã EOL)
+        python-version: [3.11]  # 👉 update version mới hơn (3.7 đã EOL)
 
     steps:
       - name: Checkout code
@@ -30,13 +30,15 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "DJANGO_SETTINGS_MODULE=bookshop_management.settings" >> $GITHUB_ENV
+          echo "DJANGO_SETTINGS_MODULE=prj_bookshop_management.settings" >> $GITHUB_ENV
           echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
 
       - name: Run migrations
+        working-directory: ./prj_bookshop_management  
         run: |
           python manage.py migrate --noinput
 
       - name: Run tests
+        working-directory: ./prj_bookshop_management
         run: |
           python manage.py test

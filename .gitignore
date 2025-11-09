@@ -1,4 +1,4 @@
-venv
-prj_bookshop_management\bookshop\__pycache__
-__pycache__
+venv/
+__pycache__/
 *.pyc
+db.sqlite3
