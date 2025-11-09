@@ -1,3 +1,4 @@
 venv
 prj_bookshop_management\bookshop\views\__pycache__
 __pycache__
+echo "db.sqlite3" >> .gitignore
