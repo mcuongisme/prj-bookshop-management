@@ -1,3 +1,4 @@
 venv
-__pychache__
+prj_bookshop_management\bookshop\__pycache__
+__pycache__
 *.pyc
