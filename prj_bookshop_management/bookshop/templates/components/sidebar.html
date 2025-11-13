@@ -36,7 +36,7 @@
             <span>Quản lý Khuyến mãi</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'reports' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'bao_cao_index' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'reports' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-file-alt mr-3"></i>
             <span>Báo Cáo Doanh Thu</span>
         </a>
