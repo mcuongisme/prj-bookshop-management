@@ -16,7 +16,7 @@
             <span>Quản  lý Sách</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'categories' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'danh_muc_list' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'categories' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-th mr-3"></i>
             <span>Quản lý Danh Mục</span>
         </a>
@@ -31,7 +31,7 @@
             <span>Quản lý Bán Hàng</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'logistics' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'khuyenmai_list' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'logistics' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-truck mr-3"></i>
             <span>Quản lý Khuyến mãi</span>
         </a>

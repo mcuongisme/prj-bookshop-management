@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookshop',
+    'category',
+    'promotions',
     'cloudinary',
     'cloudinary_storage',
 ]
