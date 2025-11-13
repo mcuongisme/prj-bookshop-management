@@ -1,7 +1,7 @@
 from django import forms
 from .models import Sach
 from .models import KhachHang
-from .models import HoaDon
+from .models import DonHang
 class SachForm(forms.ModelForm):
     class Meta:
         model = Sach
@@ -30,7 +30,7 @@ class KhachHangForm(forms.ModelForm):
 
 class HoaDonForm(forms.ModelForm):
     class Meta:
-        model = HoaDon
+        model = DonHang
         fields = '__all__'
         widgets = {
             'ma_hoa_don': forms.TextInput(attrs={
