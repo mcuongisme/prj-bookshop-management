@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+
+<div class="container mt-4">
+  <!-- Tổng quan -->
+  <div class="row mb-4 text-center">
+    <div class="col-md-6">
+      <div class="p-4 shadow rounded bg-white">
+        <h5 class="text-muted">Tổng doanh thu</h5>
+        <h3 class="text-success fw-bold">{{ tong_doanh_thu|intcomma }} đ</h3>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-4 shadow rounded bg-white">
+        <h5 class="text-muted">Tổng số đơn hàng</h5>
+        <h3 class="text-success fw-bold">{{ tong_don_hang|intcomma }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Biểu đồ -->
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Xu hướng doanh thu theo ngày</h5>
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
+
+  <!-- Danh sách hóa đơn -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Danh Sách Hóa Đơn Gần Đây</h5>
+      <table class="table table-striped align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Mã Hóa Đơn</th>
+            <th>Tổng Tiền</th>
+            <th>Ngày Lập</th>
+            <th>Tình Trạng</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for hd in hoa_don_list %}
+          <tr>
+            <td><strong>{{ hd.ma_hoa_don }}</strong></td>
+            <td>{{ hd.tong_tien|intcomma }} đ</td>
+            <td>{{ hd.ngay_lap|date:"d/m/Y" }}</td>
+            <td>
+              {% if hd.tinh_trang == "da_giao" %}
+                <span class="badge bg-success">Đã giao</span>
+              {% elif hd.tinh_trang == "dang_giao" %}
+                <span class="badge bg-warning">Đang giao</span>
+              {% elif hd.tinh_trang == "cho_xac_nhan" %}
+                <span class="badge bg-primary">Chờ xác nhận</span>
+              {% elif hd.tinh_trang == "da_huy" %}
+                <span class="badge bg-danger">Đã hủy</span>
+              {% else %}
+                <span class="badge bg-secondary">Đang chuẩn bị</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="4" class="text-center text-muted">Không có dữ liệu</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Đảm bảo dữ liệu là mảng
+  const labels = {{ ngay_list|safe }};
+  const dataValues = {{ doanh_thu_list|safe }};
+
+  const ctx = document.getElementById('chart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Doanh thu (VNĐ)',
+        data: dataValues,
+        fill: true,
+        backgroundColor: 'rgba(54,162,235,0.2)',
+        borderColor: 'rgba(54,162,235,1)',
+        borderWidth: 2,
+        tension: 0.3,
+        pointBackgroundColor: 'rgba(54,162,235,1)',
+        pointRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(value) {
+              return value.toLocaleString('vi-VN') + 'đ';
+            }
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return 'Doanh thu: ' + context.parsed.y.toLocaleString('vi-VN') + 'đ';
+            }
+          }
+        }
+      }
+    }
+  });
+</script>
+
+{% endblock %}
