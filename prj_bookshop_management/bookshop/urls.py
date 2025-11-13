@@ -10,9 +10,9 @@ urlpatterns = [
     path('sach/update/<str:ma_sach>/', sach_update, name='sach_update'),
     path('sach/delete/<str:ma_sach>/', sach_delete, name='sach_delete'),
     path('customer/', list_customer, name='khach_list'),
-    path('customer/create/', create_customer, name='sach_create'),
-    path('customer/update/<str:ma_sach>/', update_customer, name='sach_update'),
-    path('customer/delete/<str:ma_sach>/', delete_customer, name='sach_delete'),
+    path('customer/create/', create_customer, name='them_khach'),
+    path('customer/update/<str:ma_sach>/', update_customer, name='sua_khach'),
+    path('customer/delete/<str:ma_sach>/', delete_customer, name='xoa_khach'),
     
     path('hoadon/', list_hoadon, name='hoadon_list'),
     path('hoadon/create/', create_hoadon, name='hoadon_create'),
