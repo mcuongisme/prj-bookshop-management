@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h2 mb-0">Danh sách khuyến mãi</h1>
+    <a href="{% url 'khuyenmai_create' %}" class="btn btn-primary">
+      <i class="bi bi-plus-circle me-2"></i>
+      Thêm khuyến mãi
+    </a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Mã khuyến mãi</th>
+          <th>Tên sách</th>
+          <th>Giá gốc</th>
+          <th>Giá khuyến mãi</th>
+          <th>Ngày bắt đầu</th>
+          <th>Ngày kết thúc</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for khuyenmai in khuyenmai_list %}
+        <tr>
+          <td>{{ khuyenmai.ma_khuyen_mai }}</td>
+          <td>{{ khuyenmai.ma_sach.ten_sach }}</td>
+          <td>{{ khuyenmai.ma_sach.gia }}</td>
+          <td>{{ khuyenmai.gia_khuyen_mai }}</td>
+          <td>{{ khuyenmai.ngay_bat_dau }}</td>
+          <td>{{ khuyenmai.ngay_ket_thuc }}</td>
+          <td>
+            <a href="{% url 'khuyenmai_update' khuyenmai.ma_khuyen_mai %}" class="btn btn-primary btn-sm">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+            <a href="{% url 'khuyenmai_delete' khuyenmai.ma_khuyen_mai %}" class="btn btn-danger btn-sm">
+              <i class="bi bi-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

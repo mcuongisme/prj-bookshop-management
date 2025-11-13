@@ -90,6 +90,7 @@ class DanhMuc(models.Model):
     """Bảng Danh mục"""
     ma_danh_muc = models.CharField(max_length=20, primary_key=True, verbose_name="Mã danh mục")
     ten_danh_muc = models.CharField(max_length=100, verbose_name="Tên danh mục")
+    mo_ta = models.TextField(max_length=500, blank=True, null=True, verbose_name="Mô tả")
     
     class Meta:
         db_table = 'danh_muc'
@@ -119,7 +120,7 @@ class SachDanhMuc(models.Model):
 
 class KhuyenMai(models.Model):
     """Bảng Khuyến mãi"""
-    ma_khuyen_mai = models.AutoField(primary_key=True, verbose_name="Mã khuyến mãi")
+    ma_khuyen_mai = models.CharField(max_length=50, primary_key=True, verbose_name="Mã khuyến mãi")
     ma_sach = models.ForeignKey(Sach, on_delete=models.CASCADE, 
                                 db_column='ma_sach', related_name='khuyen_mai',
                                 verbose_name="Mã sách")

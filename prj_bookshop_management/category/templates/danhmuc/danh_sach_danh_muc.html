@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h2 mb-0">Danh sách danh mục</h1>
+    <a href="{% url 'danh_muc_create' %}" class="btn btn-primary">
+      <i class="bi bi-plus-circle me-2"></i>
+      Thêm danh mục
+    </a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Mã danh mục</th>
+          <th>Tên danh mục</th>
+          <th>Mô tả</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for danh_muc in danh_muc_list %}
+        <tr>
+          <td>{{ danh_muc.ma_danh_muc }}</td>
+          <td>{{ danh_muc.ten_danh_muc }}</td>
+          <td>{{ danh_muc.mo_ta }}</td>
+          <td>
+            <a href="{% url 'danh_muc_update' danh_muc.ma_danh_muc %}" class="btn btn-primary btn-sm">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+            <a href="{% url 'danh_muc_delete' danh_muc.ma_danh_muc %}" class="btn btn-danger btn-sm">
+              <i class="bi bi-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
