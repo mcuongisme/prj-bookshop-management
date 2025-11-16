@@ -4,6 +4,7 @@ from bookshop.models import DanhMuc
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django import forms
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class DanhMucForm(forms.ModelForm):
     class Meta:
@@ -15,27 +16,30 @@ class DanhMucForm(forms.ModelForm):
             'mo_ta': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
 
-class DanhMucListView(ListView):
+class DanhMucListView(LoginRequiredMixin, ListView):
     model = DanhMuc
     template_name = 'danhmuc/danh_sach_danh_muc.html'
     context_object_name = 'danh_muc_list'
+    login_url = '/login/'  # URL để redirect khi chưa đăng nhập
 
-class DanhMucCreateView(CreateView):
+class DanhMucCreateView(LoginRequiredMixin, CreateView):
     model = DanhMuc
     form_class = DanhMucForm
     template_name = 'danhmuc/them_danh_muc.html'
     success_url = reverse_lazy('danh_muc_list')
+    login_url = '/login/'
     
     def form_valid(self, form):
         messages.success(self.request, "Thêm danh mục thành công")
         return super().form_valid(form)
 
-class DanhMucUpdateView(UpdateView):
+class DanhMucUpdateView(LoginRequiredMixin, UpdateView):
     model = DanhMuc
     form_class = DanhMucForm
     template_name = 'danhmuc/sua_danh_muc.html'
     success_url = reverse_lazy('danh_muc_list')
     pk_url_kwarg = 'ma_danh_muc'
+    login_url = '/login/'
     
     def get_object(self, queryset=None):
         # Ghi đè phương thức này vì primary key là CharField chứ không phải là số
@@ -46,11 +50,12 @@ class DanhMucUpdateView(UpdateView):
         messages.success(self.request, "Cập nhật danh mục thành công")
         return super().form_valid(form)
 
-class DanhMucDeleteView(DeleteView):
+class DanhMucDeleteView(LoginRequiredMixin, DeleteView):
     model = DanhMuc
     template_name = 'danhmuc/xoa_danh_muc.html'
     success_url = reverse_lazy('danh_muc_list')
     pk_url_kwarg = 'ma_danh_muc'
+    login_url = '/login/'
     
     def get_object(self, queryset=None):
         # Ghi đè phương thức này vì primary key là CharField chứ không phải là số
