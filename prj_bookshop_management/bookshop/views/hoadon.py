@@ -55,4 +55,4 @@ def donhang_xoa(request, ma_hoa_don):
         donhang.delete()
         return redirect("donhang_list")
 
-    return render(request, "hoa-don/xoa-hoadon.html", {"donhang": donhang})
+    return render(request, "hoa-don/xoa_hoadon.html", {"donhang": donhang})
