@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
-
+from cloudinary.models import CloudinaryField
 
 class Sach(models.Model):
     """Bảng Sách"""
@@ -11,6 +11,7 @@ class Sach(models.Model):
     gia = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, 
                               validators=[MinValueValidator(0)], verbose_name="Giá")
     mo_ta = models.TextField(max_length=500, blank=True, null=True, verbose_name="Mô tả")
+    cover_image = CloudinaryField('image', folder='book_covers', blank=True)
     
     class Meta:
         db_table = 'sach'
@@ -23,6 +24,7 @@ class Sach(models.Model):
 
 class KhachHang(models.Model):
     """Bảng Khách hàng"""
+    
     sdt = models.CharField(max_length=15, primary_key=True, verbose_name="Số điện thoại")
     dia_chi = models.CharField(max_length=200, blank=True, null=True, verbose_name="Địa chỉ")
     
@@ -89,6 +91,7 @@ class DanhMuc(models.Model):
     """Bảng Danh mục"""
     ma_danh_muc = models.CharField(max_length=20, primary_key=True, verbose_name="Mã danh mục")
     ten_danh_muc = models.CharField(max_length=100, verbose_name="Tên danh mục")
+    mo_ta = models.TextField(max_length=500, blank=True, null=True, verbose_name="Mô tả")
     
     class Meta:
         db_table = 'danh_muc'
@@ -118,7 +121,7 @@ class SachDanhMuc(models.Model):
 
 class KhuyenMai(models.Model):
     """Bảng Khuyến mãi"""
-    ma_khuyen_mai = models.AutoField(primary_key=True, verbose_name="Mã khuyến mãi")
+    ma_khuyen_mai = models.CharField(max_length=50, primary_key=True, verbose_name="Mã khuyến mãi")
     ma_sach = models.ForeignKey(Sach, on_delete=models.CASCADE, 
                                 db_column='ma_sach', related_name='khuyen_mai',
                                 verbose_name="Mã sách")

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h2 mb-0">Danh sách hóa đơn</h1>
+
+    <a href="{% url 'donhang_them' %}" class="btn btn-primary">
+      <i class="bi bi-plus-circle me-2"></i>
+      Thêm hóa đơn
+    </a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Mã hóa đơn</th>
+          <th>Số điện thoại</th>
+          <th>Tổng tiền</th>
+          <th>Ngày lập</th>
+          <th>Tình trạng</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for dh in donhang_list %}
+        <tr>
+          <td>{{ dh.ma_hoa_don }}</td>
+          <td>{{ dh.sdt_khach_hang.sdt }}</td>
+          <td>{{ dh.tong_tien }} VNĐ</td>
+          <td>{{ dh.ngay_lap }}</td>
+          <td>{{ dh.get_tinh_trang_display }}</td>
+
+          <td>
+            <a href="{% url 'donhang_sua' dh.ma_hoa_don %}" class="btn btn-primary btn-sm">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+
+            <a href="{% url 'donhang_xoa' dh.ma_hoa_don %}" class="btn btn-danger btn-sm">
+              <i class="bi bi-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm rounded-4 border-danger">
+        <div class="card-header bg-danger text-white">
+          <h4 class="mb-0">
+            <i class="bi bi-exclamation-triangle me-2"></i>Xác nhận xóa hóa đơn
+          </h4>
+        </div>
+        <div class="card-body">
+          <p class="fs-5">
+            Bạn có chắc chắn muốn xóa hóa đơn
+            <strong>"{{ donhang.ma_hoa_don }}"</strong>?
+          </p>
+          <form method="post" class="d-flex justify-content-end mt-4">
+            {% csrf_token %}
+            <a href="{% url 'donhang_list' %}" class="btn btn-outline-secondary me-2">
+              Hủy
+            </a>
+            <button type="submit" class="btn btn-danger">
+              <i class="bi bi-trash me-1"></i>Xóa
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -3,7 +3,6 @@
         <!-- Left Section -->
         <div class="flex items-center gap-4">
             <h2 class="text-xl font-semibold text-gray-800">
-                Test
                 {% comment %} {% block page_title %}Quản Lý Hóa Đơn{% endblock %} {% endcomment %}
             </h2>
         </div>
@@ -11,13 +10,22 @@
         <!-- Right Section -->
         <div class="flex items-center gap-6">
             <!-- Search (Optional) -->
-            <div class="hidden md:flex">
+            <form method="get" 
+                action="{% if request.resolver_match.url_name == 'sach_list' %}{% url 'sach_list' %}{% elif request.resolver_match.url_name == 'donhang_list' %}{% url 'donhang_list' %}{% endif %}" 
+                class="hidden md:flex">
+                
                 <input 
                     type="search" 
-                    placeholder="Tìm kiếm..." 
+                    name="q"
+                    placeholder="{% if request.resolver_match.url_name == 'sach_list' %}Tìm kiếm sách...{% elif request.resolver_match.url_name == 'donhang_list' %}Tìm kiếm hóa đơn...{% elif request.resolver_match.url_name == 'khachhang_list' %}Tìm kiếm khách hàng...{% endif %}" 
                     class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 w-64"
+                    value="{{ request.GET.q|default_if_none:'' }}"
                 >
-            </div>
+                
+                <button type="submit" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                    Tìm
+                </button>
+            </form>
 
             <!-- Icons -->
             <button class="text-gray-600 hover:text-gray-900 transition">
@@ -42,7 +50,7 @@
             </div>
 
             <!-- Logout -->
-            <a href="#" class="text-gray-600 hover:text-red-600 transition">
+            <a href="{% url 'logout' %}" class="text-gray-600 hover:text-red-600 transition">
                 <i class="fas fa-sign-out-alt text-lg"></i>
             </a>
         </div>

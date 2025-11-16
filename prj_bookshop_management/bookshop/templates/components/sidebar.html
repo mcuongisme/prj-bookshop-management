@@ -6,37 +6,37 @@
 
     <!-- Navigation Items -->
     <nav class="mt-6">
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'dashboard' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'book_index' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'dashboard' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-home mr-3"></i>
             <span>Trang Chủ</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'list_orders' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'sach_list' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'list_orders' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-list mr-3"></i>
             <span>Quản  lý Sách</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'categories' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'danh_muc_list' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'categories' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-th mr-3"></i>
             <span>Quản lý Danh Mục</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'products' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'khachhang_list' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'products' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-box mr-3"></i>
             <span>Quản lý Khách Hàng</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'sales' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'donhang_list' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'sales' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-chart-line mr-3"></i>
             <span>Quản lý Bán Hàng</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'logistics' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'khuyenmai_list' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'logistics' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-truck mr-3"></i>
             <span>Quản lý Khuyến mãi</span>
         </a>
 
-        <a href="#" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'reports' %}bg-blue-600 text-white{% endif %}">
+        <a href="{% url 'bao_cao_index' %}" class="flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white transition {% if request.resolver_match.url_name == 'reports' %}bg-blue-600 text-white{% endif %}">
             <i class="fas fa-file-alt mr-3"></i>
             <span>Báo Cáo Doanh Thu</span>
         </a>
@@ -46,7 +46,7 @@
     <div class="absolute bottom-0 w-60 border-t border-gray-700">
         <a href="#" class="flex items-center px-6 py-4 text-gray-300 hover:bg-gray-700 hover:text-white transition">
             <i class="fas fa-cog mr-3"></i>
-            <span>Cài Đặt</span>
+            <span>Cài Đặtt</span>
         </a>
     </div>
 </aside>

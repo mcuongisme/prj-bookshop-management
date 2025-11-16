@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@v&$i#p&_!96p7+*7yfqe01#enp^p*0&-6srsqxa_&hw20ky6b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['prj-bookshop-management-1.onrender.com']
+ALLOWED_HOSTS = ['prj-bookshop-management-1.onrender.com', '127.0.0.1']
 
 
 # Application definition
@@ -37,8 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookshop'
+    'django.contrib.humanize',
+    'bookshop',
+    'category',
+    'promotions',
+    'cloudinary',
+    'cloudinary_storage',
 ]
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dsdyja3br',
+    'API_KEY': '183632845117889',
+    'API_SECRET': 'VuAb1lX6x5cxc8_SfZCsY7IdQ1Y',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,11 +62,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'prj_bookshop_management.urls'
-
+# Thêm dòng này vào cuối file settings.py
+LOGIN_URL = '/login/'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
