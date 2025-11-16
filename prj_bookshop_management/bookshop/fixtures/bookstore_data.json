@@ -1,0 +1,240 @@
+[
+    {
+        "model": "bookshop.DanhMuc",
+        "pk": "DM001",
+        "fields": {
+            "ten_danh_muc": "Văn học Việt Nam"
+        }
+    },
+    {
+        "model": "bookshop.DanhMuc",
+        "pk": "DM002",
+        "fields": {
+            "ten_danh_muc": "Văn học nước ngoài"
+        }
+    },
+    {
+        "model": "bookshop.DanhMuc",
+        "pk": "DM003",
+        "fields": {
+            "ten_danh_muc": "Khoa học - Kỹ thuật"
+        }
+    },
+    {
+        "model": "bookshop.DanhMuc",
+        "pk": "DM004",
+        "fields": {
+            "ten_danh_muc": "Sách thiếu nhi"
+        }
+    },
+    {
+        "model": "bookshop.Sach",
+        "pk": "SACH001",
+        "fields": {
+            "ten_sach": "Nhà Giả Kim",
+            "nha_xuat_ban": "NXB Văn học",
+            "tac_gia": "Paulo Coelho",
+            "gia": 85000.00,
+            "mo_ta": "Hành trình tìm kiếm kho báu của cậu bé chăn cừu Santiago.",
+            "cover_image": "book_covers/nha_gia_kim.jpg"
+        }
+    },
+    {
+        "model": "bookshop.Sach",
+        "pk": "SACH002",
+        "fields": {
+            "ten_sach": "Tôi Thấy Hoa Vàng Trên Cỏ Xanh",
+            "nha_xuat_ban": "NXB Trẻ",
+            "tac_gia": "Nguyễn Nhật Ánh",
+            "gia": 98000.00,
+            "mo_ta": "Tuổi thơ trong trẻo với những trò nghịch ngợm và tình bạn đẹp.",
+            "cover_image": "book_covers/toi_thay_hoa_vang.jpg"
+        }
+    },
+    {
+        "model": "bookshop.Sach",
+        "pk": "SACH003",
+        "fields": {
+            "ten_sach": "Lập Trình Python Cơ Bản",
+            "nha_xuat_ban": "NXB Đại học Quốc gia",
+            "tac_gia": "Trần Văn A",
+            "gia": 125000.00,
+            "mo_ta": "Hướng dẫn lập trình Python từ cơ bản đến nâng cao.",
+            "cover_image": "book_covers/python_co_ban.jpg"
+        }
+    },
+    {
+        "model": "bookshop.Sach",
+        "pk": "SACH004",
+        "fields": {
+            "ten_sach": "Doraemon Tập 1",
+            "nha_xuat_ban": "NXB Kim Đồng",
+            "tac_gia": "Fujiko F. Fujio",
+            "gia": 22000.00,
+            "mo_ta": "Chú mèo máy đến từ tương lai giúp Nobita vượt qua khó khăn.",
+            "cover_image": "book_covers/doraemon_1.jpg"
+        }
+    },
+    {
+        "model": "bookshop.Sach",
+        "pk": "SACH005",
+        "fields": {
+            "ten_sach": "Ông Già Và Biển Cả",
+            "nha_xuat_ban": "NXB Văn học",
+            "tac_gia": "Ernest Hemingway",
+            "gia": 72000.00,
+            "mo_ta": "Cuộc chiến giữa ông lão đánh cá và con cá kiếm khổng lồ.",
+            "cover_image": "book_covers/ong_gia_va_bien_ca.jpg"
+        }
+    },
+    {
+        "model": "bookshop.SachDanhMuc",
+        "fields": {
+            "ma_sach": "SACH001",
+            "ma_danh_muc": "DM002"
+        }
+    },
+    {
+        "model": "bookshop.SachDanhMuc",
+        "fields": {
+            "ma_sach": "SACH002",
+            "ma_danh_muc": "DM001"
+        }
+    },
+    {
+        "model": "bookshop.SachDanhMuc",
+        "fields": {
+            "ma_sach": "SACH003",
+            "ma_danh_muc": "DM003"
+        }
+    },
+    {
+        "model": "bookshop.SachDanhMuc",
+        "fields": {
+            "ma_sach": "SACH004",
+            "ma_danh_muc": "DM004"
+        }
+    },
+    {
+        "model": "bookshop.SachDanhMuc",
+        "fields": {
+            "ma_sach": "SACH005",
+            "ma_danh_muc": "DM002"
+        }
+    },
+    {
+        "model": "bookshop.KhachHang",
+        "pk": "0901234567",
+        "fields": {
+            "dia_chi": "123 Đường Lê Lợi, Quận 1, TP.HCM"
+        }
+    },
+    {
+        "model": "bookshop.KhachHang",
+        "pk": "0912345678",
+        "fields": {
+            "dia_chi": "45 Nguyễn Huệ, Quận 3, TP.HCM"
+        }
+    },
+    {
+        "model": "bookshop.KhachHang",
+        "pk": "0923456789",
+        "fields": {
+            "dia_chi": "78 Trần Hưng Đạo, Hà Nội"
+        }
+    },
+    {
+        "model": "bookshop.DonHang",
+        "pk": "HD2025001",
+        "fields": {
+            "sdt_khach_hang": "0901234567",
+            "tong_tien": 183000.00,
+            "ngay_lap": "2025-11-01",
+            "tinh_trang": "da_giao"
+        }
+    },
+    {
+        "model": "bookshop.DonHang",
+        "pk": "HD2025002",
+        "fields": {
+            "sdt_khach_hang": "0912345678",
+            "tong_tien": 85000.00,
+            "ngay_lap": "2025-11-05",
+            "tinh_trang": "dang_giao"
+        }
+    },
+    {
+        "model": "bookshop.DonHang",
+        "pk": "HD2025003",
+        "fields": {
+            "sdt_khach_hang": "0901234567",
+            "tong_tien": 147000.00,
+            "ngay_lap": "2025-11-10",
+            "tinh_trang": "cho_xac_nhan"
+        }
+    },
+    {
+        "model": "bookshop.ChiTietDonHang",
+        "fields": {
+            "ma_chi_tiet": 1,
+            "ma_hoa_don": "HD2025001",
+            "ma_sach": "SACH002",
+            "ten_sach": "Tôi Thấy Hoa Vàng Trên Cỏ Xanh",
+            "so_luong": 1,
+            "mo_ta": ""
+        }
+    },
+    {
+        "model": "bookshop.ChiTietDonHang",
+        "fields": {
+            "ma_chi_tiet": 2,
+            "ma_hoa_don": "HD2025001",
+            "ma_sach": "SACH004",
+            "ten_sach": "Doraemon Tập 1",
+            "so_luong": 4,
+            "mo_ta": "Tặng kèm sticker"
+        }
+    },
+    {
+        "model": "bookshop.ChiTietDonHang",
+        "fields": {
+            "ma_chi_tiet": 3,
+            "ma_hoa_don": "HD2025002",
+            "ma_sach": "SACH001",
+            "ten_sach": "Nhà Giả Kim",
+            "so_luong": 1,
+            "mo_ta": ""
+        }
+    },
+    {
+        "model": "bookshop.ChiTietDonHang",
+        "fields": {
+            "ma_chi_tiet": 4,
+            "ma_hoa_don": "HD2025003",
+            "ma_sach": "SACH003",
+            "ten_sach": "Lập Trình Python Cơ Bản",
+            "so_luong": 1,
+            "mo_ta": "Dành cho sinh viên CNTT"
+        }
+    },
+    {
+        "model": "bookshop.KhuyenMai",
+        "pk": 1,
+        "fields": {
+            "ma_sach": "SACH001",
+            "gia_khuyen_mai": 68000.00,
+            "ngay_bat_dau": "2025-11-01",
+            "ngay_ket_thuc": "2025-11-30"
+        }
+    },
+    {
+        "model": "bookshop.KhuyenMai",
+        "pk": 2,
+        "fields": {
+            "ma_sach": "SACH004",
+            "gia_khuyen_mai": 18000.00,
+            "ngay_bat_dau": "2025-11-10",
+            "ngay_ket_thuc": "2025-11-20"
+        }
+    }
+]
