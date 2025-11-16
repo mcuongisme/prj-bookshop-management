@@ -1,17 +1,28 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import HoaDon
-from ..forms import HoaDonForm
+from ..models import DonHang
+from ..forms import DonHangForm
+from django.db.models import Q
+
+def donhang_list(request):
+    query = request.GET.get('q')  # Lấy từ khóa tìm kiếm
+    if query:
+        # Tìm theo mã hóa đơn hoặc số điện thoại khách hàng
+        donhang_list = DonHang.objects.filter(
+            Q(ma_hoa_don__icontains=query) | 
+            Q(sdt_khach_hang__sdt__icontains=query)
+        ).order_by('-ngay_lap')
+    else:
+        donhang_list = DonHang.objects.all().order_by('-ngay_lap')
+
+    return render(request, 'hoa-don/list_hoadon.html', {
+        'donhang_list': donhang_list,
+        'query': query  # gửi query về template để giữ trong ô search
+    })
 
 
-# Danh sách hóa đơn
-def list_hoadon(request):
-    hoadon_list = HoaDon.objects.all()
-    return render(request, 'hoa_don/list_hoadon.html', {'hoadon_list': hoadon_list})
-
-
-def create_hoadon(request):
-    if request.method == 'POST':
-        form = HoaDonForm(request.POST)
+def donhang_them(request):
+    if request.method == "POST":
+        form = DonHangForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('donhang_list')
@@ -21,8 +32,8 @@ def create_hoadon(request):
     return render(request, 'hoa-don/them_hoadon.html', {'form': form})
 
 
-def update_hoadon(request, ma_hoa_don):
-    hoadon = get_object_or_404(HoaDon, ma_hoa_don=ma_hoa_don)
+def donhang_sua(request, ma_hoa_don):
+    donhang = get_object_or_404(DonHang, pk=ma_hoa_don)
 
     if request.method == "POST":
         form = DonHangForm(request.POST, instance=donhang)
@@ -37,9 +48,11 @@ def update_hoadon(request, ma_hoa_don):
     })
 
 
-def delete_hoadon(request, ma_hoa_don):
-    hoadon = get_object_or_404(HoaDon, ma_hoa_don=ma_hoa_don)
-    if request.method == 'POST':
-        hoadon.delete()
-        return redirect('list_hoadon')
-    return render(request, 'hoa_don/xoa_hoadon.html', {'hoadon': hoadon})
+def donhang_xoa(request, ma_hoa_don):
+    donhang = get_object_or_404(DonHang, pk=ma_hoa_don)
+
+    if request.method == "POST":
+        donhang.delete()
+        return redirect("donhang_list")
+
+    return render(request, "hoa-don/xoa-hoadon.html", {"donhang": donhang})
