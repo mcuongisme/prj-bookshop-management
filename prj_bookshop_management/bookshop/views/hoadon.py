@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import DonHang
+from ..models import HoaDon
 from ..forms import HoaDonForm
 
 
 # Danh sách hóa đơn
 def list_hoadon(request):
-    hoadon_list = DonHang.objects.all()
+    hoadon_list = HoaDon.objects.all()
     return render(request, 'hoa_don/list_hoadon.html', {'hoadon_list': hoadon_list})
 
 
@@ -14,28 +14,31 @@ def create_hoadon(request):
         form = HoaDonForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('list_hoadon')
+            return redirect('donhang_list')
     else:
-        form = HoaDonForm()
-    return render(request, 'hoa_don/them_hoadon.html', {'form': form})
+        form = DonHangForm()
+
+    return render(request, 'hoa-don/them_hoadon.html', {'form': form})
 
 
 def update_hoadon(request, ma_hoa_don):
-    hoadon = get_object_or_404(DonHang, ma_hoa_don=ma_hoa_don)
+    hoadon = get_object_or_404(HoaDon, ma_hoa_don=ma_hoa_don)
 
-    if request.method == 'POST':
-        form = HoaDonForm(request.POST, instance=hoadon)
+    if request.method == "POST":
+        form = DonHangForm(request.POST, instance=donhang)
         if form.is_valid():
             form.save()
-            return redirect('list_hoadon')
+            return redirect('donhang_list')
     else:
-        form = HoaDonForm(instance=hoadon)
-    
-    return render(request, 'hoa_don/them_hoadon.html', {'form': form})
+        form = DonHangForm(instance=donhang)
+
+    return render(request, 'hoa-don/them_hoadon.html', {
+        'form': form,
+    })
 
 
 def delete_hoadon(request, ma_hoa_don):
-    hoadon = get_object_or_404(DonHang, ma_hoa_don=ma_hoa_don)
+    hoadon = get_object_or_404(HoaDon, ma_hoa_don=ma_hoa_don)
     if request.method == 'POST':
         hoadon.delete()
         return redirect('list_hoadon')

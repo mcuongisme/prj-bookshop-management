@@ -24,6 +24,7 @@ class Sach(models.Model):
 
 class KhachHang(models.Model):
     """Bảng Khách hàng"""
+    
     sdt = models.CharField(max_length=15, primary_key=True, verbose_name="Số điện thoại")
     dia_chi = models.CharField(max_length=200, blank=True, null=True, verbose_name="Địa chỉ")
     

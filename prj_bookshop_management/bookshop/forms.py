@@ -17,43 +17,38 @@ class SachForm(forms.ModelForm):
 class KhachHangForm(forms.ModelForm):
     class Meta:
         model = KhachHang
-        fields = '__all__'
+        fields = ['sdt', 'dia_chi']
         widgets = {
-            'ma_kh': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập mã khách hàng'}),
-            'ho_ten': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập họ tên'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Nhập email'}),
-            'so_dien_thoai': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập số điện thoại'}),
-            'dia_chi': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập địa chỉ'}),
-            'ghi_chu': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Ghi chú (nếu có)'}),
+            'sdt': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Số điện thoại'}),
+            'dia_chi': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Địa chỉ'}),
         }
         
 
-class HoaDonForm(forms.ModelForm):
+class DonHangForm(forms.ModelForm):
     class Meta:
         model = DonHang
-        fields = '__all__'
+        fields = ['ma_hoa_don', 'sdt_khach_hang', 'tong_tien', 'tinh_trang']
+
         widgets = {
             'ma_hoa_don': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Nhập mã hóa đơn'
             }),
-            'ngay_lap': forms.DateInput(attrs={
-                'class': 'form-control',
-                'type': 'date'
-            }),
-            'khach_hang': forms.Select(attrs={
-                'class': 'form-control'
+            'sdt_khach_hang': forms.Select(attrs={
+                'class': 'form-select'
             }),
             'tong_tien': forms.NumberInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Nhập tổng tiền'
             }),
-            'trang_thai': forms.Select(attrs={
-                'class': 'form-control'
+            'tinh_trang': forms.Select(attrs={
+                'class': 'form-select'
             }),
-            'ghi_chu': forms.Textarea(attrs={
-                'class': 'form-control',
-                'rows': 3,
-                'placeholder': 'Ghi chú (nếu có)'
-            }),
+        }
+
+        labels = {
+            'ma_hoa_don': 'Mã hóa đơn',
+            'sdt_khach_hang': 'Khách hàng',
+            'tong_tien': 'Tổng tiền',
+            'tinh_trang': 'Tình trạng đơn hàng',
         }
