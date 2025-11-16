@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container my-5">
+        
+        <section class="hero text-center py-5 mb-5 bg-light rounded-4 shadow-sm">
+            <h1 class="display-4 fw-bold text-dark mb-3">Hệ thống Quản lý Thư viện Số BookManager</h1>
+            <p class="lead text-muted mb-4">Giải pháp toàn diện cho việc tổ chức, phân loại, và tra cứu kho sách khổng lồ một cách hiệu quả.</p>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="text-center mb-4 fw-bold text-secondary">Các Tính Năng Cốt Lõi</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border border-light">
+                        <h5 class="fw-bold text-primary">📊 Quản lý Danh mục</h5>
+                        <p class="mb-0 text-muted">Dễ dàng thêm, sửa, xóa thông tin sách, tác giả, nhà xuất bản. Phân loại sách theo thể loại, vị trí lưu trữ.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border border-light">
+                        <h5 class="fw-bold text-success">🔍 Tra cứu Nhanh chóng</h5>
+                        <p class="mb-0 text-muted">Hệ thống tìm kiếm mạnh mẽ theo Tên sách, ISBN, Tác giả. Hỗ trợ bộ lọc nâng cao và tra cứu mã vạch.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 border border-light">
+                        <h5 class="fw-bold text-info">📈 Báo cáo & Thống kê</h5>
+                        <p class="mb-0 text-muted">Tạo báo cáo số lượng sách, tần suất mượn trả, sách tồn kho. Phân tích dữ liệu trực quan qua biểu đồ.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="my-5">
+            <h2 class="text-center mb-5 fw-bold">Các Module Quản lý Chi tiết</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold text-dark">📚 Quản lý Kho sách</h5>
+                            <p class="card-text text-muted">Theo dõi số lượng tồn kho, trạng thái (Có sẵn/Đang mượn), và lịch sử kiểm kê chi tiết.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold text-dark">👥 Quản lý Người dùng</h5>
+                            <p class="card-text text-muted">Quản lý hồ sơ độc giả, cấp thẻ thành viên, theo dõi lịch sử mượn trả và cảnh báo quá hạn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-bold text-dark">🔄 Quản lý Mượn/Trả</h5>
+                            <p class="card-text text-muted">Hệ thống ghi nhận giao dịch mượn/trả, tự động tính phí quá hạn và quản lý dự kiến trả sách.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-5 p-5 bg-white rounded-4 shadow-lg border-start border-primary border-5">
+            <h2 class="fw-bold mb-3 text-primary">🚀 Nâng tầm Hiệu quả Quản lý</h2>
+            <p class="lead mb-4 text-dark">BookManager giúp số hóa quy trình thư viện, tiết kiệm thời gian và giảm thiểu sai sót thủ công.</p>
+            <ul class="list-unstyled text-muted">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Triển khai dễ dàng, giao diện thân thiện với người dùng.</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Sao lưu dữ liệu tự động, bảo mật tuyệt đối.</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Hỗ trợ kỹ thuật chuyên nghiệp 24/7.</li>
+            </ul>
+        </section>
+
+        <section class="my-5 p-5 bg-danger text-white rounded-4 shadow-lg text-center">
+            <h2 class="fw-bold mb-3">💡 Bạn muốn dùng thử?</h2>
+            <p class="lead mb-4">Đăng ký ngay để trải nghiệm bản Demo miễn phí và nhận tư vấn chuyên sâu về giải pháp.</p>
+            <a href="/lien-he" class="btn btn-light btn-lg fw-bold text-danger shadow-sm">Yêu cầu Demo Ngay</a>
+        </section>
+
+        <footer class="footer text-center py-4 border-top">
+            <p class="text-muted mb-0">© <span id="year">2025</span> BookManager — Giải pháp Quản lý Thư viện Số hàng đầu.</p>
+        </footer>
+    </div>
+{% endblock %}
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
