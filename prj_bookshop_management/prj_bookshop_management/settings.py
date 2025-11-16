@@ -62,7 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'prj_bookshop_management.urls'
-
+# Thêm dòng này vào cuối file settings.py
+LOGIN_URL = '/login/'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

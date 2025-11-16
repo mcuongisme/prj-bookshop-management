@@ -7,5 +7,5 @@ def index(request):
 
 
 def home(request):
-    return render(request, 'base.html')
+    return render(request, 'index.html')
 
