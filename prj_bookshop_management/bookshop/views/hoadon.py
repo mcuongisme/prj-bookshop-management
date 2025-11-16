@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from ..models import HoaDon
+from ..models import DonHang
 from ..forms import HoaDonForm
 
 
 # Danh sách hóa đơn
 def list_hoadon(request):
-    hoadon_list = HoaDon.objects.all()
+    hoadon_list = DonHang.objects.all()
     return render(request, 'hoa_don/list_hoadon.html', {'hoadon_list': hoadon_list})
 
 
@@ -21,7 +21,7 @@ def create_hoadon(request):
 
 
 def update_hoadon(request, ma_hoa_don):
-    hoadon = get_object_or_404(HoaDon, ma_hoa_don=ma_hoa_don)
+    hoadon = get_object_or_404(DonHang, ma_hoa_don=ma_hoa_don)
 
     if request.method == 'POST':
         form = HoaDonForm(request.POST, instance=hoadon)
@@ -35,7 +35,7 @@ def update_hoadon(request, ma_hoa_don):
 
 
 def delete_hoadon(request, ma_hoa_don):
-    hoadon = get_object_or_404(HoaDon, ma_hoa_don=ma_hoa_don)
+    hoadon = get_object_or_404(DonHang, ma_hoa_don=ma_hoa_don)
     if request.method == 'POST':
         hoadon.delete()
         return redirect('list_hoadon')

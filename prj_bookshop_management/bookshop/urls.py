@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from .views.book import sach_list, sach_create, sach_update, sach_delete
-from .views import list_hoadon, create_hoadon, update_hoadon, delete_hoadon
+from .views.hoadon import list_hoadon, create_hoadon, update_hoadon, delete_hoadon
 from .views.customer import list_customer, create_customer, update_customer, delete_customer
 urlpatterns = [
     path('', views.home, name='book_index'),
