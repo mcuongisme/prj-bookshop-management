@@ -11,37 +11,36 @@ Backend Framework: Django (Python)
 
 Database: PostgreSQL (khuyến nghị cho môi trường Production)
 
-# Quản lý dependencies: pip / requirements.txt
+Quản lý dependencies: pip / requirements.txt
 
 CI/CD: GitHub Actions (đã cấu hình cho kiểm thử tự động)
 
 🚀 Hướng Dẫn Cài Đặt và Chạy Dự Án
 Làm theo các bước dưới đây để thiết lập và chạy dự án cục bộ trên máy tính của bạn.
 
-1. Chuẩn bị Môi Trường
-#Đảm bảo bạn đã cài đặt Python 3.11 trở lên.
+# 1. Chuẩn bị Môi Trường
+Đảm bảo bạn đã cài đặt Python 3.11 trở lên.
 
-2. Clone Repository
+# 2. Clone Repository
 Bash
+git clone https://github.com/mcuongisme/prj-bookshop-management
+cd prj-bookshop-management 
 
-# git clone https://github.com/mcuongisme/prj-bookshop-management
-# cd prj-bookshop-management 
-
-3. Thiết lập Môi trường Ảo (Virtual Environment)
+# 3. Thiết lập Môi trường Ảo (Virtual Environment)
 Sử dụng môi trường ảo để cô lập các dependencies của dự án:
 
 Bash
-# python -m venv venv
-# source venv/bin/activate  
-# Hoặc: .\venv\Scripts\activate # Trên Windows
+python -m venv venv
+source venv/bin/activate  
+Hoặc: .\venv\Scripts\activate # Trên Windows
 
-4. Cài đặt Dependencies
+# 4. Cài đặt Dependencies
 Cài đặt tất cả các thư viện cần thiết:
 
 Bash
-# pip install -r requirements.txt
+pip install -r requirements.txt
 
-5. Cấu hình Cơ sở Dữ liệu
+# 5. Cấu hình Cơ sở Dữ liệu
 Dự án sử dụng cơ sở dữ liệu mặc định của Django (sqlite3) cho môi trường phát triển cục bộ.
 
 Tạo các bảng (run migrations):
@@ -49,7 +48,7 @@ Tạo các bảng (run migrations):
 Bash
 
 python manage.py migrate
-6. Tạo Tài khoản Superuser (Quản trị viên)
+# 6. Tạo Tài khoản Superuser (Quản trị viên)
 Để truy cập vào trang Admin của Django:
 
 Bash
