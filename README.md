@@ -24,6 +24,7 @@ Làm theo các bước dưới đây để thiết lập và chạy dự án c�
 # 2. Clone Repository
 Bash
 git clone https://github.com/mcuongisme/prj-bookshop-management
+
 cd prj-bookshop-management 
 
 # 3. Thiết lập Môi trường Ảo (Virtual Environment)
@@ -60,15 +61,14 @@ Khởi động Django Development Server:
 
 Bash
 
-# python manage.py runserver
+python manage.py runserver
 
-# Truy cập ứng dụng tại: http://127.0.0.1:8000/
+Truy cập ứng dụng tại: http://127.0.0.1:8000/
 
 ✅ Kiểm thử (Testing)
 Dự án có kèm theo các bài kiểm thử đơn vị (Unit Tests) để đảm bảo chất lượng code. Bạn có thể chạy chúng bằng lệnh:
 
 Bash
-
 python manage.py test
 ☁️ Triển khai (Deployment)
 Dự án này đã được cấu hình CI bằng GitHub Actions, đảm bảo code luôn ổn định. Chúng tôi đề xuất sử dụng Render (PaaS) cho việc triển khai Production.
