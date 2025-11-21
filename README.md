@@ -11,7 +11,7 @@ Backend Framework: Django (Python)
 
 Database: PostgreSQL (khuyến nghị cho môi trường Production)
 
-Quản lý dependencies: pip / requirements.txt
+# Quản lý dependencies: pip / requirements.txt
 
 CI/CD: GitHub Actions (đã cấu hình cho kiểm thử tự động)
 
@@ -24,22 +24,23 @@ Làm theo các bước dưới đây để thiết lập và chạy dự án c�
 2. Clone Repository
 Bash
 
-#git clone https://github.com/mcuongisme/prj-bookshop-management
-cd prj-bookshop-management 
+# git clone https://github.com/mcuongisme/prj-bookshop-management
+# cd prj-bookshop-management 
+
 3. Thiết lập Môi trường Ảo (Virtual Environment)
 Sử dụng môi trường ảo để cô lập các dependencies của dự án:
 
 Bash
-
-#python -m venv venv
-source venv/bin/activate  
+# python -m venv venv
+# source venv/bin/activate  
 # Hoặc: .\venv\Scripts\activate # Trên Windows
+
 4. Cài đặt Dependencies
 Cài đặt tất cả các thư viện cần thiết:
 
 Bash
+# pip install -r requirements.txt
 
-pip install -r requirements.txt
 5. Cấu hình Cơ sở Dữ liệu
 Dự án sử dụng cơ sở dữ liệu mặc định của Django (sqlite3) cho môi trường phát triển cục bộ.
 
@@ -53,14 +54,16 @@ python manage.py migrate
 
 Bash
 
-python manage.py createsuperuser
+# python manage.py createsuperuser
+
 7. Chạy Ứng dụng
 Khởi động Django Development Server:
 
 Bash
 
-python manage.py runserver
-Truy cập ứng dụng tại: http://127.0.0.1:8000/
+# python manage.py runserver
+
+# Truy cập ứng dụng tại: http://127.0.0.1:8000/
 
 ✅ Kiểm thử (Testing)
 Dự án có kèm theo các bài kiểm thử đơn vị (Unit Tests) để đảm bảo chất lượng code. Bạn có thể chạy chúng bằng lệnh:
