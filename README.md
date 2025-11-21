@@ -19,20 +19,20 @@ CI/CD: GitHub Actions (đã cấu hình cho kiểm thử tự động)
 Làm theo các bước dưới đây để thiết lập và chạy dự án cục bộ trên máy tính của bạn.
 
 1. Chuẩn bị Môi Trường
-Đảm bảo bạn đã cài đặt Python 3.11 trở lên.
+#Đảm bảo bạn đã cài đặt Python 3.11 trở lên.
 
 2. Clone Repository
 Bash
 
-git clone <URL_repository_của_bạn>
-cd prj-bookshop-management # Thay thế bằng thư mục gốc dự án của bạn
+#git clone https://github.com/mcuongisme/prj-bookshop-management
+cd prj-bookshop-management 
 3. Thiết lập Môi trường Ảo (Virtual Environment)
 Sử dụng môi trường ảo để cô lập các dependencies của dự án:
 
 Bash
 
-python -m venv venv
-source venv/bin/activate  # Trên Linux/macOS
+#python -m venv venv
+source venv/bin/activate  
 # Hoặc: .\venv\Scripts\activate # Trên Windows
 4. Cài đặt Dependencies
 Cài đặt tất cả các thư viện cần thiết:
